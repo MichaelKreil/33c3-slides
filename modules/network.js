@@ -24,7 +24,7 @@ function getHTMLLinks(baseUrl, cb) {
 			data = data.match(/href=\".*?\"/g);
 			data = data.map(function (entry) {
 				var url = entry.match(/href=\"(.*?)\"/)[1];
-				var id = url.match(/^32c3-([0-9]{4})-/);
+				var id = url.match(/^33c3-([0-9]{4})-/);
 				if (!id) return false;
 				id = id[1];
 				return {
@@ -77,7 +77,7 @@ function getRequest(url) {
 	options.headers = {
 		'Accept-Encoding':'identity',
 		'Accept-Language':'en-US,en',
-		'User-Agent':'Michael (32c3@michael-kreil.de)'
+		'User-Agent':'Michael (33c3@michael-kreil.de)'
 	};
 
 	var protocol = false;
