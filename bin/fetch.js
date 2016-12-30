@@ -40,14 +40,13 @@ function getSessions(cb) {
 function getVideos(cb) {
 	console.log('load video list');
 
-	var url = 'http://ftp.halifax.rwth-aachen.de/ccc/33C3/h264-hd/';
-	//var url = 'http://berlin.ftp.media.ccc.de/congress/33c3/h264-hd/';
+	var url = 'http://berlin.ftp.media.ccc.de/congress/33c3/h264-hd/';
 	network.getHTMLLinks(url, function (entries) {
 		var todos = [];
 
+		// remove duplicated entries
 		var lastId = false
 		entries = entries.filter(entry => (entry.id === lastId) ? false : lastId = entry.id)
-		console.dir(entries, {colors:true});
 
 		entries.forEach(function (entry) {
 			var video = videolist.get(entry.id);
@@ -58,8 +57,6 @@ function getVideos(cb) {
 			if (fs.existsSync(path.resolve(config.mainFolder, video.filename)) && video.downloaded) return;
 			todos.push(video);
 		})
-
-		console.dir(todos, {colors:true});
 		
 		async.eachLimit( todos,	1,
 			function (video, callback) {
