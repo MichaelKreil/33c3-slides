@@ -25,7 +25,7 @@ async.series([
 function getSessions(cb) {
 	console.log('load session list');
 
-	network.getJSON('http://data.conference.bits.io/data/32c3/sessions.json', function (entries) {
+	network.getJSON('http://data.conference.bits.io/data/33c3/sessions.json', function (entries) {
 		entries.forEach(function (entry) {
 			var id = entry.id.match(/^32c3-([0-9]{4})$/);
 			if (!id) return;
@@ -40,7 +40,7 @@ function getSessions(cb) {
 function getVideos(cb) {
 	console.log('load video list');
 
-	network.getHTMLLinks('http://berlin.ftp.media.ccc.de/congress/32C3/h264-hd/', function (entries) {
+	network.getHTMLLinks('http://berlin.ftp.media.ccc.de/congress/33c3/h264-hd/', function (entries) {
 		var todos = [];
 
 		entries.forEach(function (entry) {
