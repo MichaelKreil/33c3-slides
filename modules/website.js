@@ -204,7 +204,7 @@ function generateIndex(videos, sessions, cb) {
 	temp.forEach(function (room, index) { rooms[room] = index });
 
 	var sessionList = [];
-	var offsetTop = t2y('2015-12-27T08:00:00.000Z');
+	var offsetTop = t2y('2016-12-27T08:00:00.000Z');
 	var maxHeight = 0;
 	Object.keys(sessions).forEach(function (key) {
 		session = sessions[key];
@@ -229,7 +229,7 @@ function generateIndex(videos, sessions, cb) {
 	var roomLabels = [];
 	var timeLabels = [];
 	for (var i = 0; i < 4; i++) {
-		var y = t2y('2015-12-'+(27+i)+'T08:30:00.000Z') - offsetTop;
+		var y = t2y('2016-12-'+(27+i)+'T08:30:00.000Z') - offsetTop;
 		days.push({
 			top: y,
 			left: offsetLeft,
@@ -251,7 +251,7 @@ function generateIndex(videos, sessions, cb) {
 				h -= 24;
 				d++;
 			}
-			var y = t2y('2015-12-'+d+'T'+(100+h).toFixed(0).substr(1)+':00:00.000Z') - offsetTop;
+			var y = t2y('2016-12-'+d+'T'+(100+h).toFixed(0).substr(1)+':00:00.000Z') - offsetTop;
 			timeLabels.push({
 				top: y-14,
 				height: 14,
