@@ -67,7 +67,8 @@ function generateSession(video, session, cb) {
 		]
 		var zip = child_process.spawn('zip', args);
 
-		//zip.stdout.on('data', function (data) { console.log(data.toString())	})
+		zip.stderr.on('data', function (data) { console.log(data.toString())	})
+		zip.stdout.on('data', function (data) { console.log(data.toString())	})
 
 		zip.on('close', function (code, signal) {
 			//console.log('ping', code, signal);
@@ -93,7 +94,8 @@ function generateSession(video, session, cb) {
 		]
 		var im = child_process.spawn('convert', args);
 
-		im.stderr.on('data', function (data) { console.log(data.toString())	})
+		im.stdout.on('data', function (data) { console.log(data.toString()) })
+		im.stderr.on('data', function (data) { console.log(data.toString()) })
 
 		im.on('close', function (code, signal) {
 			if (code != 0) return console.log('child process terminated due to receipt of code "'+code+'" and signal "'+signal+'"');
@@ -140,7 +142,8 @@ function generateSession(video, session, cb) {
 		]
 		var im = child_process.spawn('montage', args);
 
-		im.stderr.on('data', function (data) { console.log(data.toString())	})
+		im.stderr.on('data', function (data) { console.log(data.toString()) })
+		im.stdout.on('data', function (data) { console.log(data.toString()) })
 
 		im.on('close', function (code, signal) {
 			if (code != 0) return console.log('child process terminated due to receipt of code "'+code+'" and signal "'+signal+'"');
